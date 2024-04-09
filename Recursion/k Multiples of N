@@ -1,0 +1,25 @@
+package Recursion;
+
+import java.util.Scanner;
+
+public class kmulitplesofn {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter nnumm");
+        int n = sc.nextInt();
+        System.out.println("kha tk ka multiple chahiye");
+        int k = sc.nextInt();
+        multiple(n,k);
+    }
+
+    static void multiple (int n , int k) {
+        if (k == 1) {
+            System.out.println(n);
+            return;
+        }
+        int vv = n *k;
+        multiple(n,k-1);
+        System.out.println(vv);
+
+    }
+}
