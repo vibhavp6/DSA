@@ -1,0 +1,23 @@
+package Recursion;
+import java.util.Scanner;
+
+public class Multiplcation {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the first number:");
+        int x = sc.nextInt();
+        System.out.println("Enter the second number:");
+        int y = sc.nextInt();
+
+        int result = multiplyRecursive(x, y);
+
+        System.out.println("The result of multiplication is: " + result);
+    }
+
+    static int multiplyRecursive(int x, int y) {
+        if (y == 1) {
+            return x;
+        }
+        return x + multiplyRecursive(x, y - 1);
+    }
+}
