@@ -1,0 +1,25 @@
+package Recursion;
+import java.util.*;
+public class armstrong {
+    public static void main(String[]args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the digit:");
+        int d = sc.nextInt();
+        int check = armstrong(d);
+        if(check == d){
+            System.out.println("This is armstrong number:");
+        }
+        else {
+            System.out.println("This is not armstrong number:");
+        }
+
+    }
+    static int armstrong(int n){
+        if(n >=0 && n <=9){
+            return n*n*n;
+        }
+        int selfwork = n %10;
+        int ans = armstrong(n/10) + selfwork* selfwork* selfwork;
+        return ans;
+    }
+}
