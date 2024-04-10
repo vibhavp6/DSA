@@ -1,0 +1,55 @@
+package Recursion;
+
+import java.util.Scanner;
+
+public class greatestcommondivisorGCD {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int x = sc.nextInt();
+        int y = sc.nextInt();
+        System.out.println(GCD1(x,y));
+        System.out.println(GCD(x,y));
+        System.out.println(BruteGCD(x,y));
+        System.out.println(LCM(x,y));
+
+    }
+
+    static int GCD1 (int x , int y) {
+       while (x %y!= 0) {
+           int rem = x%y;
+           x = y;
+           y =rem;
+       }
+       return y;
+    }
+
+
+    // Euclid"s Algo recursion
+    // Basic Concept
+    // gcd(x, y) = gcd (y,x%y)
+    static int GCD (int x, int y){
+        if (y ==0) return x;
+
+        return GCD(y,x%y) ;
+    }
+
+
+    static int LCM(int x, int y) {
+        //formula is [ LCM * GCD = X * Y or LCM = (X * Y) / GCD ]
+        return (x * y) / GCD(x, y);
+    }
+    // Brute  force
+    static int BruteGCD(int x, int y){
+        //finding the greatest common divisor
+        int min = Math.min(x,y);
+        int max = 0;
+        for(int i = min ; i >= 1; i--){
+            if(x % i == 0 && y % i == 0 ){
+                max = i;
+                break;
+            }
+        }
+        return max;
+    }
+
+}
