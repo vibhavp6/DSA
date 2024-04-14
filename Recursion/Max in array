@@ -1,0 +1,20 @@
+package Recursion;
+import java.util.Scanner;
+public class naxinarray {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner( System.in);
+        int a = sc.nextInt();
+        int [] arr = new int [a];
+        for (int i = 0 ; i<arr.length; i++) {
+            arr[i]= sc.nextInt();
+        }
+        System.out.println(max(arr , 0));
+    }
+    static int max(int[] arr, int idx) {
+        if (idx == arr.length) {
+            return arr[arr.length-1]; // Return the last element as the maximum if it's the only element left.
+        }
+        int maxInRest = max(arr, idx + 1); // Recursively find the max in the rest of the array.
+        return Math.max(maxInRest, arr[idx]); // Return the maximum between the current element and the max of the rest.
+    }
+}
