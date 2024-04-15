@@ -1,0 +1,27 @@
+package Recursion;
+
+import java.util.Scanner;
+
+public class lastindexoftarget {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner( System.in);
+        int a = sc.nextInt();
+        int [] arr = new int [a];
+        for (int i = 0 ; i<arr.length; i++) {
+            arr[i]= sc.nextInt();
+        }
+        System.out.println("which");
+        int x = sc.nextInt();
+        System.out.println(lastIndex_Recursion(arr,x,0));
+    }
+
+    static int lastIndex_Recursion(int[] arr, int x, int i){
+        if(i == arr.length)
+            return -1;
+        int lastIndex = lastIndex_Recursion(arr, x, i+1);
+        if(arr[i]==x && i>lastIndex)
+            return i;
+        else
+            return lastIndex;
+    }
+}
