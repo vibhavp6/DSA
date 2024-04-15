@@ -1,0 +1,36 @@
+package Recursion;
+
+import java.util.Scanner;
+
+public class search {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner( System.in);
+        int a = sc.nextInt();
+        int [] arr = new int [a];
+        for (int i = 0 ; i<arr.length; i++) {
+            arr[i]= sc.nextInt();
+        }
+        System.out.println("which");
+        int target = sc.nextInt();
+        if (find(arr,arr.length,target,0)) {
+            System.out.println("true");
+        } else {
+            System.out.println("false");
+        }
+    }
+
+    static boolean find (int [] arr, int n , int target, int idx) {
+        if (idx >= n) {
+            return false;
+        }
+
+        if (arr[idx] == target) return true;
+
+//        if(find(arr,n,target,idx+1)) {
+//            return true;
+//        } else {
+//            return false;
+//        }
+        return find(arr,n,target,idx +1);
+    }
+}
