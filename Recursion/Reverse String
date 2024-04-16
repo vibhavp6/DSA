@@ -1,0 +1,20 @@
+package Recursion;
+
+import java.util.Scanner;
+
+public class reverse {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        System.out.println(reversee(s,0));
+
+    }
+
+    static String reversee(String s, int idx) {
+        if ( idx == s.length()) return "";
+
+        String anss = reversee(s,idx+1);
+
+        return  anss + s.charAt(idx);
+    }
+}
