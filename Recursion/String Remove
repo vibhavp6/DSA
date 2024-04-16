@@ -1,0 +1,43 @@
+package Recursion;
+
+import java.util.Scanner;
+
+public class stringremove {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        System.out.println(remove(s,0));
+        System.out.println(remove2(s));
+
+    }
+
+    static String remove(String s, int idx) {
+        if (idx == s.length()) return "";
+
+        String smaall = remove(s,idx +1) ;
+        char curr = s.charAt(idx);
+
+        if (curr != 'a') {
+            return remove(s,idx+1) + curr;
+        } else {
+            return remove(s,idx+1);
+        }
+
+    }
+
+    //method2
+    static String remove2(String s) {
+        if ( s.length() == 0) return "";
+
+        String smaall = remove2(s.substring(1)) ;
+        char curr = s.charAt(0);
+
+        if (curr != 'a') {
+            return smaall + curr;
+        } else {
+            return smaall;
+        }
+
+    }
+
+}
