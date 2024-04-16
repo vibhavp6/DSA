@@ -1,0 +1,43 @@
+package Recursion;
+
+import java.util.Scanner;
+
+public class palindrome {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+//        String s = sc.nextLine();
+//        String rev = reversee(s,0);
+//        if (rev.equals(s)) {
+//            System.out.println("  is palindrome" + s);
+//        } else {
+//            System.out.println(" is not palindrome" + s);
+//        }
+
+
+//        System.out.println(ispalindrome(s,0,s.length()-1));
+        System.out.println("ask");
+        int q = sc.nextInt();
+        sc.nextLine();
+        while (q >0) {
+            String s = sc.nextLine();
+            System.out.println(ispalindrome(s,0,s.length()-1));
+            q--;
+        }
+    }
+
+    static String reversee(String s, int idx) {
+        if ( idx == s.length()) return "";
+
+        String anss = reversee(s,idx+1);
+
+        return  anss + s.charAt(idx);
+    }
+
+    //method 2
+
+    static boolean ispalindrome (String s , int l , int r) {
+        if (l >= r) return true;
+
+        return (s.charAt(l) == s.charAt(r) && ispalindrome(s,l+1 , r-1));
+    }
+}
