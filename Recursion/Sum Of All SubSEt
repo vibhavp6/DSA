@@ -1,0 +1,27 @@
+package Recursion;
+
+import java.util.Scanner;
+
+public class sumofallsubsets {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int v = sc.nextInt();
+        int[] a = new int[v];
+        for (int i = 0; i < a.length; i++) {
+            a[i] = sc.nextInt();
+        }
+        sum(a, a.length, 0, 0);
+    }
+
+    static void sum(int a[], int n, int idx, int currsum) {
+        if (idx == n) {
+            System.out.println(currsum);
+            return;
+        }
+        // Include the current element
+        sum(a, n, idx + 1, currsum + a[idx]);
+
+        // Exclude the current element
+        sum(a, n, idx + 1, currsum);
+    }
+}
