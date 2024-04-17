@@ -1,0 +1,18 @@
+package Recursion;
+
+public class stringsubset {
+    public static void main(String[] args) {
+
+    }
+
+    static void subset(String s, String currans) {
+        if (s.length () == 0) {
+            System.out.println(currans);
+        }
+
+        char currv = s.charAt(0);
+        String rem =  s.substring(1);
+        subset(rem, currans +currv);
+        subset(rem,currans);
+    }
+}
