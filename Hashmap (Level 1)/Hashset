@@ -1,0 +1,28 @@
+package Hashmap;
+
+import java.util.HashSet;
+import java.util.Scanner;
+
+public class hashset {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the size of the array:");
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        System.out.println("Enter the elements of the array:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+        int vib = sizes(arr);
+        System.out.println(vib);
+
+    }
+
+    static int sizes(int [] arr) {
+        HashSet<Integer> hs = new HashSet<>();
+        for (int i = 0; i< arr.length; i++) {
+            hs.add(arr[i]);
+        }
+        return hs.size();
+    }
+}
