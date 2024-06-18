@@ -1,0 +1,44 @@
+package Hashmap;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class pairsum {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the size of the array:");
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        System.out.println("Enter the elements of the array:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+        System.out.println("Enter the number of k:");
+        int k = sc.nextInt();
+        Boolean vib = sum(arr,k);
+        System.out.println(vib);
+    }
+    static Boolean sum(int [] arr, int k) {
+        HashMap<Integer, Integer> hm = new HashMap<>(); // input , output
+
+        for (int i = 0; i < arr.length; i++) {
+            if (hm.containsKey(arr[i])) {
+                int temp = hm.get(arr[i]);
+                hm.put(arr[i], temp + 1);
+            } else {
+                hm.put(arr[i], 1);
+            }
+        }
+        for (int i =0; i < arr.length; i++) {
+            int a = arr[i];
+            int b = k - a;
+            if (a != b && hm.containsKey(b)) {
+                return true;
+            } else if (a==b && hm.containsKey(b) && hm.get(b) >1 ) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+// T.C : O(N)
