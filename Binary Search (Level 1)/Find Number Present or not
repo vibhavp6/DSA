@@ -1,0 +1,37 @@
+package Binary;
+
+import java.util.Scanner;
+
+public class Findnumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the size of the array:");
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        System.out.println("Enter the elements of the array:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+        System.out.println("Enter K:");
+        int k = sc.nextInt();
+        System.out.println(Binarysearch(arr, k));
+    }
+
+    static Boolean Binarysearch(int[] arr, int k) {
+        int lo = 0;
+        int hi = arr.length - 1;
+
+        while (lo <= hi) {
+            int m = (lo + hi) / 2; // Moved inside the loop to update every iteration
+            if (arr[m] == k) {
+                return true;
+            } else if (arr[m] < k) {
+                lo = m + 1;
+            } else {
+                hi = m - 1;
+            }
+        }
+        return false;
+    }
+}
+
