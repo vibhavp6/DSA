@@ -1,0 +1,48 @@
+package Binary;
+
+import java.util.Scanner;
+
+public class uniquenumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the size of the array:");
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        System.out.println("Enter the elements of the array:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        int uniqueElement = uniqueElements(arr);
+        System.out.println("The unique element is: " + uniqueElement);
+    }
+
+    static int uniqueElements(int[] arr) {
+        int lo = 0;
+        int hi = arr.length - 1;
+
+        // Edge cases
+        if (arr.length == 1) {
+            return arr[0];
+        }
+        if (arr[0] != arr[1]) {
+            return arr[0];
+        }
+        if (arr[hi] != arr[hi - 1]) {
+            return arr[hi];
+        }
+
+        while (lo <= hi) {
+            int m = (lo + hi) / 2;
+            if (arr[m] != arr[m - 1] && arr[m] != arr[m + 1]) {
+                return arr[m];
+            }
+            if ((m % 2 == 0 && arr[m] == arr[m + 1]) || (m % 2 == 1 && arr[m] == arr[m - 1])) {
+                lo = m + 1;
+            } else {
+                hi = m - 1;
+            }
+        }
+        return -1; // This should never be reached if input is valid
+    }
+}
